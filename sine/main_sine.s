@@ -9,11 +9,10 @@ write   = 64
 ds	= 0x20000
 
 .section .data 
+input:
+.align 4
+.space 3
 
-# This is  0-ended string with input data
-input: 	.asciz "0.234"
-
-# This will be used for 0-ended string with result. Use "-1" if you cannot calculate the function
 output:                
 .align 4
 .space	100
@@ -38,7 +37,7 @@ _start:
 	li      a7, write
     	li      a0, stdout
         la      a1, output
-        li      a2, 8
+        li      a2, 7
 	ecall 
 
 	# Result checking will be here
